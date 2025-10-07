@@ -1,5 +1,5 @@
 import { Model, DataTypes } from "sequelize";
-import { sequelize } from "../utils/db";
+import sequelize from "../utils/db";
 
 class Url extends Model {
   declare id: number;
@@ -15,19 +15,19 @@ Url.init(
       autoIncrement: true,
     },
 
-    originalUrl: {
+    origin_url: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [4, 50],
+        len: [4, 450],
       },
     },
-    shortUrl: {
+    short_url: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
       unique: true,
       validate: {
-        len: [4, 20],
+        len: [4, 50],
       },
     }
     
